@@ -45,6 +45,7 @@ export default function App() {
                   <Route path="/settings" element={<SettingsPage />} />
                   <Route path="/profile/:userId" element={<UserProfilePage />} />
                   <Route path="/post/:postId" element={<PostPage />} />
+                  <Route path="/auth" element={<Navigate to="/" replace />} />
                   {profile?.role === 'super_admin' && (
                     <Route path="/admin" element={<AdminPage />} />
                   )}
