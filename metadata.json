@@ -1,0 +1,5 @@
+{
+  "name": "Santo Pecado",
+  "description": "Una plataforma modular y escalable de grado empresarial para la gestión de medios y mensajería segura, integrada con Supabase.",
+  "requestFramePermissions": []
+}
