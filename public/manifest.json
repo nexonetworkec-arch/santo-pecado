@@ -4,7 +4,7 @@
   "description": "Gestión de Medios y Mensajería Segura de Grado Empresarial",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#1a0505",
+  "background_color": "#000000",
   "theme_color": "#dc2626",
   "orientation": "portrait",
   "icons": [
@@ -12,19 +12,19 @@
       "src": "/icon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
-      "src": "https://picsum.photos/seed/santopecado/192/192",
+      "src": "/icon.svg",
       "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
+      "type": "image/svg+xml",
+      "purpose": "maskable"
     },
     {
-      "src": "https://picsum.photos/seed/santopecado/512/512",
+      "src": "/icon.svg",
       "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
+      "type": "image/svg+xml",
+      "purpose": "maskable"
     }
   ]
 }
