@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { useAuth } from './hooks/useAuth';
 import Navbar from './components/layout/Navbar';
 import ScrollToTop from './components/layout/ScrollToTop';
+import { motion } from 'motion/react';
 
 // Lazy load pages
 const AuthPage = lazy(() => import('./pages/AuthPage'));
@@ -15,10 +16,33 @@ const PostPage = lazy(() => import('./pages/PostPage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
 const LoadingScreen = ({ message = "Cargando..." }) => (
-  <div className="flex min-h-screen items-center justify-center">
-    <div className="flex flex-col items-center space-y-4">
-      <div className="h-12 w-12 animate-spin rounded-full border-4 border-primary-600 border-t-transparent" />
-      <p className="text-sm font-bold text-white/60">{message}</p>
+  <div className="flex min-h-screen items-center justify-center bg-black">
+    <div className="flex flex-col items-center space-y-6">
+      <motion.div
+        animate={{ 
+          scale: [1, 1.1, 1],
+          opacity: [0.8, 1, 0.8]
+        }}
+        transition={{ 
+          duration: 2,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+        className="h-24 w-24 rounded-3xl bg-white/5 p-4 shadow-2xl border border-white/10 backdrop-blur-xl"
+      >
+        <img src="/icon.svg" alt="Santo Pecado Logo" className="h-full w-full object-contain" referrerPolicy="no-referrer" />
+      </motion.div>
+      <div className="flex flex-col items-center space-y-2">
+        <div className="h-1 w-32 bg-white/10 rounded-full overflow-hidden">
+          <motion.div 
+            initial={{ x: "-100%" }}
+            animate={{ x: "100%" }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
+            className="h-full w-1/2 bg-primary-600"
+          />
+        </div>
+        <p className="text-xs font-bold uppercase tracking-widest text-white/40">{message}</p>
+      </div>
     </div>
   </div>
 );

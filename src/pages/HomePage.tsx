@@ -22,15 +22,20 @@ export default function HomePage() {
   return (
     <div className="container mx-auto max-w-6xl px-4 py-8">
       <header className="mb-12 flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
-        <div>
-          <h1 className="text-4xl font-bold tracking-tight text-white">Santo Pecado</h1>
-          <p className="mt-2 text-lg text-white/70">Colabora y comparte medios de forma segura en tu organización.</p>
-          {profile && !profile.is_verified && (
-            <div className="mt-4 flex items-center space-x-2 text-amber-400 bg-amber-400/10 px-3 py-1.5 rounded-full w-fit text-sm font-medium border border-amber-400/20">
-              <ShieldAlert size={16} />
-              <span>Cuenta pendiente de verificación</span>
-            </div>
-          )}
+        <div className="flex items-center space-x-4">
+          <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/5 p-2 shadow-2xl border border-white/10 backdrop-blur-xl">
+            <img src="/icon.svg" alt="Santo Pecado Logo" className="h-full w-full object-contain" referrerPolicy="no-referrer" />
+          </div>
+          <div>
+            <h1 className="text-4xl font-bold tracking-tight text-white">Santo Pecado</h1>
+            <p className="mt-1 text-lg text-white/70">Colabora y comparte medios de forma segura.</p>
+            {profile && !profile.is_verified && (
+              <div className="mt-4 flex items-center space-x-2 text-amber-400 bg-amber-400/10 px-3 py-1.5 rounded-full w-fit text-sm font-medium border border-amber-400/20">
+                <ShieldAlert size={16} />
+                <span>Cuenta pendiente de verificación</span>
+              </div>
+            )}
+          </div>
         </div>
         <div className="flex flex-wrap gap-3">
           <Button
