@@ -297,3 +297,17 @@ CREATE POLICY "Usuarios gestionan sus propias suscripciones" ON public.push_subs
 
 -- 16. NOTA SOBRE STORAGE
 -- Crea un bucket llamado 'media' en el Dashboard de Supabase y ponlo como público.
+
+-- 17. FUNCIÓN PARA ELIMINACIÓN DE CUENTA PROPIA (CASCADA TOTAL)
+-- Esta función permite que un usuario autenticado borre su propia cuenta de Auth,
+-- lo que disparará el borrado en cascada de su perfil y todos sus datos.
+CREATE OR REPLACE FUNCTION public.delete_own_user()
+RETURNS void AS $$
+BEGIN
+  -- Borrar de auth.users dispara ON DELETE CASCADE en public.profiles
+  DELETE FROM auth.users WHERE id = auth.uid();
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER;
+
+-- Otorgar permisos de ejecución a usuarios autenticados
+GRANT EXECUTE ON FUNCTION public.delete_own_user() TO authenticated;

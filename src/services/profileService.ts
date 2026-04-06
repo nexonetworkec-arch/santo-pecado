@@ -144,29 +144,20 @@ export const profileService = {
   },
 
   async deleteAccount(userId: string) {
-    // Delete media (storage files are handled by bucket policies or manual cleanup if needed, 
-    // but here we focus on database records)
-    // Note: In a real app, you'd also delete files from storage.
-    
-    // The order matters if there are foreign key constraints without CASCADE
-    // We'll delete everything associated with the user
-    
-    await Promise.all([
-      supabase.from('media').delete().eq('user_id', userId),
-      supabase.from('follows').delete().or(`follower_id.eq.${userId},following_id.eq.${userId}`),
-      supabase.from('messages').delete().or(`sender_id.eq.${userId},receiver_id.eq.${userId}`),
-      supabase.from('notifications').delete().or(`user_id.eq.${userId},sender_id.eq.${userId}`),
-      supabase.from('likes').delete().eq('user_id', userId),
-    ]);
+    // Llamamos a la función RPC que borra al usuario de auth.users
+    // Esto disparará el borrado en cascada de profiles y todas las tablas relacionadas
+    // gracias a las claves foráneas con ON DELETE CASCADE definidas en el esquema.
+    const { error } = await supabase.rpc('delete_own_user');
 
-    // Finally delete the profile
-    const { error } = await supabase
-      .from('profiles')
-      .delete()
-      .eq('id', userId);
-
-    if (error) throw error;
-    
-    // Sign out is handled by the component after successful deletion
+    if (error) {
+      console.error('Error calling delete_own_user RPC:', error);
+      // Intento de respaldo: borrar solo el perfil si el RPC falla
+      const { error: profileError } = await supabase
+        .from('profiles')
+        .delete()
+        .eq('id', userId);
+        
+      if (profileError) throw profileError;
+    }
   }
 };

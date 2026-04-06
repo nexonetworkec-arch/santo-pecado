@@ -9,6 +9,12 @@
   "orientation": "portrait",
   "icons": [
     {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
       "src": "https://picsum.photos/seed/santopecado/192/192",
       "sizes": "192x192",
       "type": "image/png",

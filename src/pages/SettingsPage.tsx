@@ -184,7 +184,7 @@ export default function SettingsPage() {
 
       await profileService.deleteAccount(user.id);
       await signOut();
-      navigate('/auth');
+      navigate('/auth', { replace: true });
     } catch (error: any) {
       setDeleteError(error.message);
     } finally {
