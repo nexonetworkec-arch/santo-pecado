@@ -1,0 +1,24 @@
+{
+  "name": "Santo Pecado",
+  "short_name": "Santo Pecado",
+  "description": "Gestión de Medios y Mensajería Segura de Grado Empresarial",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1a0505",
+  "theme_color": "#dc2626",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "https://picsum.photos/seed/santopecado/192/192",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://picsum.photos/seed/santopecado/512/512",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -1,3 +1,16 @@
+self.addEventListener('install', (event) => {
+  self.skipWaiting();
+});
+
+self.addEventListener('activate', (event) => {
+  event.waitUntil(clients.claim());
+});
+
+self.addEventListener('fetch', (event) => {
+  // Basic fetch handler required for PWA installability
+  event.respondWith(fetch(event.request));
+});
+
 self.addEventListener('push', (event) => {
   const data = event.data ? event.data.json() : { title: 'Nueva Notificación', body: 'Tienes un nuevo mensaje.' };
 
