@@ -137,7 +137,10 @@ export const messageService = {
   async markAsRead(userId: string, senderId: string) {
     const { error } = await supabase
       .from('messages')
-      .update({ is_read: true })
+      .update({ 
+        is_read: true,
+        read_at: new Date().toISOString()
+      })
       .match({ receiver_id: userId, sender_id: senderId, is_read: false });
 
     if (error) throw error;
