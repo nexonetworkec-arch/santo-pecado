@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { format } from 'date-fns';
-import { CheckCircle2, Maximize2, ExternalLink } from 'lucide-react';
+import { Check, CheckCheck, Maximize2, ExternalLink } from 'lucide-react';
 import { cn } from '@/src/lib/utils';
 import { Message } from '@/src/types';
 import { useNavigate } from 'react-router-dom';
@@ -99,7 +99,11 @@ export const MessageBubble: React.FC<MessageBubbleProps> = ({ message, isMe, onM
           <span>{format(new Date(message.created_at), 'HH:mm')}</span>
           {isMe && (
             <div className="flex items-center">
-              <CheckCircle2 size={10} className={cn("transition-colors", message.is_read ? "text-blue-400" : "opacity-60")} />
+              {message.is_read ? (
+                <CheckCheck size={12} className="text-blue-400" />
+              ) : (
+                <Check size={12} className="opacity-60" />
+              )}
             </div>
           )}
         </div>
