@@ -29,6 +29,7 @@ export interface Message {
   receiver_id: string;
   content: string;
   is_read: boolean;
+  read_at?: string;
   created_at: string;
   sender?: UserProfile;
 }
