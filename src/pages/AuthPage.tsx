@@ -106,7 +106,7 @@ export default function AuthPage() {
         <Card className="bg-white border-none shadow-2xl overflow-hidden">
           <CardHeader className="pb-2">
             <div className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-2xl bg-slate-50 p-3 shadow-inner">
-              <img src="/icon.svg" alt="Santo Pecado Logo" className="h-full w-full object-contain" referrerPolicy="no-referrer" />
+              <img src="/icon.svg?v=2" alt="Santo Pecado Logo" className="h-full w-full object-contain" referrerPolicy="no-referrer" />
             </div>
             <CardTitle className="text-center text-3xl font-bold text-primary-600">
               {isLogin ? 'Santo Pecado' : 'Crear Cuenta'}
