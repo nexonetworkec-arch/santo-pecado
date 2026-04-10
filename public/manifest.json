@@ -1,11 +1,12 @@
 {
   "name": "Santo Pecado",
   "short_name": "Santo Pecado",
+  "id": "/?source=pwa",
   "description": "Gestión de Medios y Mensajería Segura de Grado Empresarial",
-  "start_url": "/",
+  "start_url": "/?source=pwa",
   "display": "standalone",
   "background_color": "#000000",
-  "theme_color": "#dc2626",
+  "theme_color": "#000000",
   "orientation": "portrait",
   "icons": [
     {
