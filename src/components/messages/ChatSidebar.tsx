@@ -74,11 +74,7 @@ export const ChatSidebar: React.FC<ChatSidebarProps> = ({
                     isActive && "bg-primary-600/10 border-l-4 border-primary-500"
                   )}
                 >
-                  <Link 
-                    to={`/profile/${conv.userId}`}
-                    onClick={(e) => e.stopPropagation()}
-                    className="relative shrink-0 group/avatar"
-                  >
+                  <div className="relative shrink-0 group/avatar">
                     <div className="h-12 w-12 rounded-full bg-primary-600/20 flex items-center justify-center text-primary-400 font-bold overflow-hidden ring-2 ring-white/10 transition-transform group-hover/avatar:scale-110">
                       {profile?.avatar_url ? (
                         <img src={profile.avatar_url} alt="" className="h-full w-full object-cover" referrerPolicy="no-referrer" />
@@ -91,16 +87,12 @@ export const ChatSidebar: React.FC<ChatSidebarProps> = ({
                         <CheckCircle2 size={10} className="text-white" />
                       </div>
                     )}
-                  </Link>
+                  </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between mb-1">
-                      <Link 
-                        to={`/profile/${conv.userId}`}
-                        onClick={(e) => e.stopPropagation()}
-                        className="font-bold text-white truncate hover:text-primary-400 transition-colors"
-                      >
+                      <span className="font-bold text-white truncate group-hover:text-primary-400 transition-colors">
                         {profile?.full_name || 'Usuario'}
-                      </Link>
+                      </span>
                       <div className="flex items-center space-x-2">
                         {conv.unreadCount > 0 && (
                           <span className="flex h-5 w-5 items-center justify-center rounded-full bg-primary-500 text-[10px] font-black text-white shadow-lg ring-1 ring-black">
