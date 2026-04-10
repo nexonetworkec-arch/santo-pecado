@@ -135,14 +135,25 @@ export const messageService = {
   },
 
   async markAsRead(userId: string, senderId: string) {
-    const { error } = await supabase
-      .from('messages')
-      .update({ 
-        is_read: true,
-        read_at: new Date().toISOString()
-      })
-      .match({ receiver_id: userId, sender_id: senderId, is_read: false });
+    try {
+      const { error } = await supabase
+        .from('messages')
+        .update({ 
+          is_read: true,
+          read_at: new Date().toISOString()
+        })
+        .match({ receiver_id: userId, sender_id: senderId, is_read: false });
 
-    if (error) throw error;
+      if (error) {
+        // If the error is about missing columns, log a specific warning
+        if (error.code === '42703') {
+          console.warn('⚠️ Las columnas is_read o read_at no existen en la tabla messages. Por favor, ejecuta el script SQL proporcionado.');
+        } else {
+          throw error;
+        }
+      }
+    } catch (err) {
+      console.error('Error marking messages as read:', err);
+    }
   }
 };
