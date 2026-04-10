@@ -49,7 +49,7 @@ export default function Navbar() {
       <div className="container mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
         <Link to="/" className="flex items-center space-x-2 group shrink-0">
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-black/20 p-1.5 shadow-lg shadow-primary-600/10 group-hover:scale-110 transition-transform">
-            <img src="/icon.svg" alt="Santo Pecado Logo" className="h-full w-full object-contain" referrerPolicy="no-referrer" />
+            <img src="/icon.svg?v=2" alt="Santo Pecado Logo" className="h-full w-full object-contain" referrerPolicy="no-referrer" />
           </div>
           <span className="text-lg sm:text-xl font-bold tracking-tight text-white drop-shadow-sm truncate max-w-[120px] sm:max-w-none">Santo Pecado</span>
         </Link>
