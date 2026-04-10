@@ -30,7 +30,7 @@ const LoadingScreen = ({ message = "Cargando..." }) => (
         }}
         className="h-24 w-24 rounded-3xl bg-white/5 p-4 shadow-2xl border border-white/10 backdrop-blur-xl"
       >
-        <img src="/icon.svg" alt="Santo Pecado Logo" className="h-full w-full object-contain" referrerPolicy="no-referrer" />
+        <img src="/icon.svg?v=2" alt="Santo Pecado Logo" className="h-full w-full object-contain" referrerPolicy="no-referrer" />
       </motion.div>
       <div className="flex flex-col items-center space-y-2">
         <div className="h-1 w-32 bg-white/10 rounded-full overflow-hidden">
